@@ -1,0 +1,11 @@
+﻿@model UdemyVidly.Models.Customer
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+@Model.Name
+
+
+@if (@Model.Birthdate != null)
+{@Model.Birthdate}

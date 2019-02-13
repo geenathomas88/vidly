@@ -1,0 +1,28 @@
+﻿@model IEnumerable<UdemyVidly.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (!Model.Any())
+{
+    <p>No Customer Yet!</p>
+}
+else
+{
+    <table class="table table-bordered table-hover table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Discount Rates</th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(@customer.Name, "Details", "Customers", new { id = customer.Id }, null)
+                </td>
+                <td>@customer.MembershipType.Name</td>
+            </tr>
+        }
+    </table>
+}
